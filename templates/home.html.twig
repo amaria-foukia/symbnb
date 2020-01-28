@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Bienvenue sur le plus meilleur réseau d'appartements
+{% endblock %}
+
+{% block body %} 
+<div class="container">
+
+    <div class="jumbotron background-img mt-3">
+        <h1 class="display-4" style="font-family: 'Dancing Script', cursive;">Bienvenue sur DestinationS ! </h1><br>
+        <p class="lead">Nous mettons en lien des voyageurs et des propriétaires !</p>
+        <hr class="my-4">
+        <p class="lead">Vous êtes voyageurs ? Où loger pour vos futurs destinations ?</p><br>
+        <p class="lead">
+            <a class="btn btn-warning btn-lg" href="{{ path('ads_index') }}" role="button">Voir nos annonces</a>
+        </p>
+    </div>
+    <h2 class="h1 my-5">Nos Appartements Stars</h2>
+
+    <div class="row">
+        {% for data in ads %}
+            {% include 'ad/_ad.html.twig' with {'ad': data.annonce} %}
+        {% endfor %}
+    </div>
+
+    <h2 class="h1 my-5">Nos Propriétaires Stars</h2>
+    <div class="row">
+        {% for data in users %}
+        <div class="col">
+            <div class="card border-warning mb-3">
+                <div class="card-body">
+                    <h4 class="card-title">{{data.user.fullName}}</h4>
+                    <hr>
+                </div>
+                <div class="card-text">
+                    <img src="{{data.user.picture}}" 
+                    class="avatar avatar-medium float-left m-3" alt="Amaria Foukia">
+                    <p class="card-text">{{data.user.description}}</p>
+                </div><br>
+                <a href="{{ path('user_show', {'slug': data.user.slug }) }}" class="btn btn-warning btn-sm float-right m-2" style="color:white">En savoir plus</a>
+            </div>
+        </div>
+        {% endfor %}   
+    </div>
+
+
+</div>
+{% endblock %}

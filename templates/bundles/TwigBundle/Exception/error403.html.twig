@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Page non autorisée{% endblock %}
+
+{% block body %}
+
+    <div class="container">
+
+        <h1>Désolé, vous n'êtes pas autorisé !</h1>
+
+        <p>Vous pouvez retourner à l'accueil ou encore visiter nos super annonces !</p>
+
+        <a href="{{path('homepage')}}" class="btn btn-primary"> Retour à la page d'accueil</a>
+        <a href="{{path('ads_index')}}" class="btn btn-success"> Voir nos annonces</a>
+
+    </div>
+
+{% endblock %}
