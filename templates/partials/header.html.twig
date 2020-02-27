@@ -14,16 +14,21 @@
 			<li class="nav-item">
 				<a class="nav-link" href="{{ path('ads_index') }}">Annonces</a>
 			</li>
-			{% if app.user  %}
-				<li class="nav-item">
-					<a class="nav-link" href="{{ path('ads_create') }}">Créer une annonce</a>
-				</li>
-			{% endif %}
+
+			<li class="nav-item">
+				<a class="nav-link" href="{{ path('ads_create') }}">Créer une annonce</a>
+			</li>
+
+			<li class="nav-item">
+				<a class="nav-link" href="{{ path('admin_dashboard')}}">Tableau de bord</a>
+			</li>
+
+
 		</ul>
 		{# 		<form class="form-inline my-2 my-lg-0">
-											<input class="form-control mr-sm-2" type="text" placeholder="Search">
-											<button class="btn btn-warning my-2 my-sm-0" type="submit" style="font-family: 'Dancing Script', cursive; font-size: 20px">Go!</button>
-										</form> #}
+																					<input class="form-control mr-sm-2" type="text" placeholder="Search">
+																					<button class="btn btn-warning my-2 my-sm-0" type="submit" style="font-family: 'Dancing Script', cursive; font-size: 20px">Go!</button>
+																				</form> #}
 		<ul class="navbar-nav ml-auto">
 			{% if app.user %}
 				<li class="nav-item dropdown">
@@ -57,15 +62,14 @@
 				</li>
 
 			{% else %}
+
 				<li class="nav-item">
 					<a class="nav-link" href="{{ path('account_login') }}">Connexion</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="{{ path('account_register')}}">Inscription</a>
 				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="{{ path('admin_dashboard')}}">Tableau de bord</a>
-				</li>
+
 
 			{% endif %}
 		</ul>
