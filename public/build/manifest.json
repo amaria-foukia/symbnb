@@ -1,9 +1,9 @@
 {
-  "build/css/app.css": "/build/css/app.css",
-  "build/js/ad.js": "/build/js/ad.js",
-  "build/js/app.js": "/build/js/app.js",
-  "build/runtime.js": "/build/runtime.js",
-  "build/vendors~js/ad~js/app.js": "/build/vendors~js/ad~js/app.js",
-  "build/vendors~js/app.js": "/build/vendors~js/app.js",
+  "build/0.f84c0b24.js": "/build/0.f84c0b24.js",
+  "build/1.9b5c3218.js": "/build/1.9b5c3218.js",
+  "build/css/app.css": "/build/css/app.941a0c4b.css",
+  "build/js/ad.js": "/build/js/ad.8e13fa0f.js",
+  "build/js/app.js": "/build/js/app.b9ca95c7.js",
+  "build/runtime.js": "/build/runtime.ed3c6480.js",
   "build/images/travel.jpg": "/build/images/travel.1f4b879e.jpg"
 }
