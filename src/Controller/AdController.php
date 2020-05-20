@@ -26,7 +26,7 @@ class AdController extends AbstractController
         // $repo = $this->getDoctrine()->getRepository(Ad::Class);
 
         $ads = $repo->findAll();
-        
+
         return $this->render('ad/index.html.twig', [
             'ads' => $ads
         ]);
@@ -40,11 +40,12 @@ class AdController extends AbstractController
      *
      * @return Response
      */
-    public function create(Request $request, ObjectManager $manager){
+    public function create(Request $request, ObjectManager $manager)
+    {
 
-        $ad = new Ad(); 
+        $ad = new Ad();
 
-    //Plus besoin d'afficher ce qui est ci-dessous tout se fait avec allow_add et twig
+        //Plus besoin d'afficher ce qui est ci-dessous tout se fait avec allow_add et twig
         // $image = new Image(); 
         // $image->setUrl('http://placehold.it/400x200')
         //     ->setCaption('Texte 1');
@@ -60,8 +61,8 @@ class AdController extends AbstractController
 
         $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()){
-            foreach($ad->getImages() as $image){
+        if ($form->isSubmitted() && $form->isValid()) {
+            foreach ($ad->getImages() as $image) {
                 $image->setAd($ad);
                 $manager->persist($image);
             }
@@ -72,7 +73,7 @@ class AdController extends AbstractController
             $manager->flush();
 
             $this->addFlash(
-                'success', 
+                'success',
                 "L'annonce <strong>{$ad->getTitle()}</strong> a bien été enregistrée !"
             );
 
@@ -84,7 +85,6 @@ class AdController extends AbstractController
         return $this->render('ad/new.html.twig', [
             'form' => $form->createView()
         ]);
-
     }
 
     /**
@@ -101,8 +101,8 @@ class AdController extends AbstractController
 
         $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()){
-            foreach($ad->getImages() as $image){
+        if ($form->isSubmitted() && $form->isValid()) {
+            foreach ($ad->getImages() as $image) {
                 $image->setAd($ad);
                 $manager->persist($image);
             }
@@ -111,7 +111,7 @@ class AdController extends AbstractController
             $manager->flush();
 
             $this->addFlash(
-                'success', 
+                'success',
                 "L'annonce <strong>{$ad->getTitle()}</strong> a bien été enregistrée !"
             );
 
@@ -120,11 +120,10 @@ class AdController extends AbstractController
             ]);
         }
 
-        return $this->render('ad/edit.html.twig',[
-            'form'=>$form->createView(),
-            'ad'=>$ad
+        return $this->render('ad/edit.html.twig', [
+            'form' => $form->createView(),
+            'ad' => $ad
         ]);
-
     }
 
     /**
@@ -140,7 +139,7 @@ class AdController extends AbstractController
         // $ad = $repo->findOneBySlug($slug);
 
         return $this->render('ad/show.html.twig', [
-            'ad'=> $ad
+            'ad' => $ad
         ]);
     }
 
@@ -154,16 +153,16 @@ class AdController extends AbstractController
      * @param ObjectManager $manager
      * @return Response
      */
-    public function delete(Ad $ad, ObjectManager $manager){
+    public function delete(Ad $ad, ObjectManager $manager)
+    {
         $manager->remove($ad);
         $manager->flush();
 
         $this->addFlash(
-            'success', 
+            'success',
             "L'annonce <strong>{$ad->getTitle()}</strong> a bien été supprimée !"
         );
 
         return $this->redirectToRoute('ads_index');
     }
-
 }
